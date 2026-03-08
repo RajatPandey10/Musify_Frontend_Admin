@@ -1,8 +1,10 @@
+import DashboardLayout from '../layout/DashboardLayout.jsx';
+
 const AddSong = ()=>{
     return (
-        <div>
-            Add Song component
-        </div>
+        <DashboardLayout activeMenu='Add Song'>
+            <div>Add new song</div>
+        </DashboardLayout>
     )
 }
 

@@ -1,8 +1,11 @@
+import DashboardLayout from '../layout/DashboardLayout.jsx';
+
+
 const ListAlbum = ()=>{
     return (
-        <div>
-            List Album component
-        </div>
+        <DashboardLayout activeMenu='List Album'>
+            <div>List Album</div>
+        </DashboardLayout>
     )
 }
 

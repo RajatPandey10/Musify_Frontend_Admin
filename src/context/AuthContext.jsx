@@ -21,11 +21,12 @@ export const AuthProvider = ({children})=>{
     const login = async (email,password)=>{
         try{
             const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {email,password});
+            
             if(response.status === 200){
                 setToken(response.data.token);
                 setUser({email:response.data.email, role: response.data.role})
                 localStorage.setItem('adminToken',response.data.token);
-                localStorage.setItem('adminUser',JSON.stringify({email: response.data.emial, role: response.data.role}));
+                localStorage.setItem('adminUser',JSON.stringify({email: response.data.email, role: response.data.role}));
                 return {success: true};
             }
             else{

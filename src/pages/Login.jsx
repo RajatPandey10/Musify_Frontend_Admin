@@ -5,7 +5,6 @@ import {useState, useEffect} from 'react';
 import {toast} from 'react-hot-toast';
 import {useAuth} from '../context/AuthContext.jsx';
 
- 
 
 const Login = ()=>{
 
@@ -21,7 +20,7 @@ const Login = ()=>{
             navigate('/add-song', {replace :true});
         }
     },[authLoading,isAuthenticated,navigate])
-
+  
 
     if(isAuthenticated()){
         return null;

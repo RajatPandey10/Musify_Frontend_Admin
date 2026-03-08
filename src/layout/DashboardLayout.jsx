@@ -1,7 +1,18 @@
-const DashboardLayout = ()=>{
+import Navbar from './Navbar.jsx';
+import Sidebar from './Sidebar.jsx';
+
+const DashboardLayout = ({children, activeMenu})=>{
     return (
         <div>
-            DashboardLayout component
+            <Navbar activeMenu={activeMenu}/>
+            <div className='flex'>
+                <div className='max-[1080px]:hidden'>
+                    <Sidebar activeMenu={activeMenu} />
+                </div>
+                <div className='grow mx-5'>
+                    {children}
+                </div>
+            </div>
         </div>
     )
 }
