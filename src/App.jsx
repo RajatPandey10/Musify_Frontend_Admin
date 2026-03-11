@@ -11,7 +11,7 @@ import {AuthProvider} from './context/AuthContext.jsx';
 import ProctedRoutes from './components/ProtectedRoute.jsx';
 
 
-export const API_BASE_URL = "http://localhost:8080";
+// export const API_BASE_URL = "http://localhost:8080";
 
 function App() {
 

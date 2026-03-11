@@ -48,7 +48,7 @@ const AddAlbums = ()=>{
                         <p>Album name</p>
                         <input 
                             type='text'
-                            className='bg-transparent outline-green-600 border-2 border-gray-400 p-2.5 w-[max(40vw,250px)]'
+                            className='bg-transparent outline-green-600 border-2 border-gray-400 p-2.5 w-[max(4vw,250px)]'
                             placeholder='Type here'
                             value = {name}
                             onChange = {(e)=> setName(e.target.value)}
@@ -61,7 +61,7 @@ const AddAlbums = ()=>{
                         <p>Album description</p>
                         <input 
                             type='text'
-                            className='bg-transparent outline-green-600 border-2 border-gray-400 p-2.5 w-[max(40vw,250px)]'
+                            className='bg-transparent outline-green-600 border-2 border-gray-400 p-2.5 w-[max(4vw,250px)]'
                             placeholder='Type here'
                             value = {desc}
                             onChange = {(e)=> setDesc(e.target.value)}
