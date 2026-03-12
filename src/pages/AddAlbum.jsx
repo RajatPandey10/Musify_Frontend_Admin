@@ -1,6 +1,7 @@
 import DashboardLayout from '../layout/DashboardLayout.jsx';
 import {useState} from 'react';
 import {Image} from 'lucide-react';
+import {toast} from 'react-hot-toast';
 
 const AddAlbums = ()=>{
     const [image,setImage] = useState(false);
@@ -9,7 +10,35 @@ const AddAlbums = ()=>{
     const [desc,setDesc] = useState('');
     const [loading,setLoading] = useState(false);
 
-    const onSubmitHandler = (e)=>{
+    const onSubmitHandler = async (e)=>{
+
+        e.preventDefault();
+        setLoading(true);
+
+        try{
+            const formData = new FormData();
+            const request = {
+                name,
+                desc,
+                bgColor: color
+            }
+            formData.append("request",JSON.stringify(request));
+            formData.append("file",image);
+        
+            const response = await albumsAPI.add(formData);
+            if(response.status === 201){
+                toast.success("Album added!")
+                setName("");
+                setDesc("");
+                setImage(false);
+            }else{
+                toast.error("Something went wrong while adding album. Please try again.");
+            }
+        }catch(err){
+            toast.error("Error adding album. Please try again");
+        }finally{
+            setLoading(false);
+        }
 
     }
 
