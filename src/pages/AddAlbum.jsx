@@ -2,10 +2,12 @@ import DashboardLayout from '../layout/DashboardLayout.jsx';
 import {useState} from 'react';
 import {Image} from 'lucide-react';
 import {toast} from 'react-hot-toast';
+import { albumsAPI } from '../services/apiService';
+
 
 const AddAlbums = ()=>{
     const [image,setImage] = useState(false);
-    const [color,setColor] = useState('');
+    const [color,setColor] = useState("#000000");
     const [name,setName] = useState('');
     const [desc,setDesc] = useState('');
     const [loading,setLoading] = useState(false);
