@@ -2,7 +2,7 @@ import DashboardLayout from '../layout/DashboardLayout.jsx';
 import {useState,useEffect} from 'react';
 import {albumsAPI} from '../services/apiService.js';
 import {toast} from 'react-hot-toast';
-import {Image,Palette,FileText} from 'lucide-react';
+import {Image,Palette,FileText,Trash2} from 'lucide-react';
 
 const ListAlbum = ()=>{
 
@@ -97,14 +97,54 @@ const ListAlbum = ()=>{
                                      {/* album color */}
                                     <div className='col-span-2'>
                                         <div className='flex items-center gap-2'>
-                                            <div> </div>
+                                            <div
+                                            
+                                                style ={{backgroundColor: album.bgColor}}
+                                                title = {`Theme color: ${album.bgColor}`}
+                                                className='w-6 h-6 rounded-full border-2 border-gray-300 shadow-sm'>
+                                                
+                                            </div>
+                                            <span className='text-xs text-gray-500 font-mono'>
+                                                {album.bgColor}
+                                            </span>
                                         </div>
+                                    </div>
+
+                                    {/* Action button */}
+                                    <div className='col-span-2 flex justify-center'> 
+                                        <button 
+                                            title = "Delete Album"
+                                            className='inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-50 text-red-600 hover:bg-red-100 hover:text-red-700 transition-colors duration-200 group'>
+                                            <Trash2 className='w-4 h-4 group:hover:scale-110 transition-transform duration-200 '/>
+                                        </button>
                                     </div>
                                 </div>
                             ))
                         )}
                     </div>
                 </div>
+
+                {/* footer stats */}
+                {data.length > 0 && (
+                    <div className='mt-6 bg-gray-50 rounded-lg px-6 py-4'>
+                        <div className='flex items-center justify-between text-sm text-gray-600'>
+                            <span>
+                                Total Albums:
+                                <span className='font-semibold text-gray-900'>
+                                    {data.length}
+                                </span>
+                            </span>
+                            <span>
+                                Last Updated:
+                                <span className='font-semibold text-gray-900'>
+                                    Just Now
+                                </span>
+                            </span>
+
+                        </div>
+
+                    </div>
+                )}
             </div>
         </DashboardLayout>
     )
