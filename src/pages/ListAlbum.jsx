@@ -84,7 +84,7 @@ const ListAlbum = ()=>{
                         {data.length === 0 ? (
                             <div className='px-6 py-12 text-center'>
                                 <Image className='w-12 h-12 text-gray-400 mx-auto mb-4' />
-                                <p className=' text-gray-500 text-lg'>Np albums found</p>
+                                <p className=' text-gray-500 text-lg'>No Album found</p>
                                 <p className='text-gray-400 text-sm'>Add some albums to get started</p>
                             </div>
                         ): (

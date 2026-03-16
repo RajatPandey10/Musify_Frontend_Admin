@@ -84,7 +84,7 @@ const ListSong = ()=>{
                         {data.length === 0 ? (
                             <div className='px-6 py-12 text-center'>
                                 <Image className='w-12 h-12 text-gray-400 mx-auto mb-4' />
-                                <p className=' text-gray-500 text-lg'>Np songs found</p>
+                                <p className=' text-gray-500 text-lg'>No Song found</p>
                                 <p className='text-gray-400 text-sm'>Add some song to get started</p>
                             </div>
                         ): (
