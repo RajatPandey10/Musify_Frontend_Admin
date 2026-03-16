@@ -21,13 +21,30 @@ const ListAlbum = ()=>{
         }
     }
 
+    const removeAlbum = async(id)=>{
+        try{
+            const response = await albumsAPI.remove(id);
+            if(response.status === 204){
+                toast.success("Album deleted");
+                await fetchAlbums();
+            }
+        }catch(error){
+            toast.error("Failed to delete the album");
+        }
+    }
+
     useEffect(()=>{
         fetchAlbums();
     },[]);
 
     return (
         <DashboardLayout activeMenu='List Album'>
-            <div className='p-6'>
+            {loading? (
+                <div className='grid place-items-center min-h-[80vh]'>
+                    <div className='w-16 h-16 place-self-center border-4 border-gray-400 border-t-green-800 rounded-full animate-spin'></div>
+                </div>
+            ):(
+                <div className='p-6'>
                 {/* header section */}
                 <div className='mb-8'>
                     <h1 className='text-3xl font-bold text-gray-900 mb-2'>
@@ -113,6 +130,7 @@ const ListAlbum = ()=>{
                                     {/* Action button */}
                                     <div className='col-span-2 flex justify-center'> 
                                         <button 
+                                            onClick = {()=> removeAlbum(album._id)}
                                             title = "Delete Album"
                                             className='inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-50 text-red-600 hover:bg-red-100 hover:text-red-700 transition-colors duration-200 group'>
                                             <Trash2 className='w-4 h-4 group:hover:scale-110 transition-transform duration-200 '/>
@@ -146,6 +164,8 @@ const ListAlbum = ()=>{
                     </div>
                 )}
             </div>
+            )}
+            
         </DashboardLayout>
     )
 }
